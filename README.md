@@ -64,7 +64,7 @@ pp_mrp/__main__.py    Command-line interface
 sql/schema.sql        Learning schema modeled on selected SAP PP objects
 sql/seed.sql          Example master data and BOMs
 data/demand.csv       Sample independent demand
- tests/               Automated simulation tests
+tests/                Automated simulation tests
 docs/PLANNING_NOTES.md Process/object mapping, assumptions, and user guide
 docs/DEBUGGING_LOG.md Actual issues found and resolved during this build
 ```
