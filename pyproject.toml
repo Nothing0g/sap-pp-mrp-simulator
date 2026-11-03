@@ -1,0 +1,9 @@
+[project]
+name = "sap-pp-mrp-simulator"
+version = "0.1.0"
+description = "A local SAP-style PP/MRP learning simulation using Python and SQLite"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.unittest]
+start-directory = "tests"
