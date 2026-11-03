@@ -1,8 +1,8 @@
 # SAP-Style PP / MRP Simulation — Bicycle Suspension Assembly
 
-A small, explainable Python + SQLite learning project that models selected SAP Production Planning (PP) master-data concepts. It explodes a multi-level bill of material (BOM), nets dated demand against unrestricted stock while protecting safety stock, rounds shortages to lot-size multiples, and calculates start dates by offsetting finish dates with planned lead time and a simple routing-duration estimate.
+A small, explainable Python + SQLite simulation of selected SAP Production Planning (PP) master-data concepts. It explodes a multi-level bill of material (BOM), nets dated demand against unrestricted stock while protecting safety stock, rounds shortages to lot-size multiples, and calculates start dates by offsetting finish dates with planned lead time and a simple routing-duration estimate.
 
-> **Scope and honesty:** This is an independent learning simulation, not SAP software, not connected to an SAP system, and not evidence of hands-on SAP configuration or implementation. On a resume, describe it as **“SAP-style PP/MRP simulation in Python and SQLite”** or **“modeled on selected SAP PP data objects.”**
+> **Project scope:** This is an independent simulation inspired by selected PP planning concepts. It is not SAP software and does not connect to a live SAP system; the master data and outputs are illustrative.
 
 ## What it demonstrates
 
@@ -55,13 +55,23 @@ Each output row is a **suggested simulated replenishment**, not an SAP-created o
 
 The sample data is intentionally small and illustrative. The material IDs, quantities, stock, dates, BOMs, routes, and work centres are invented for this exercise.
 
+## Sample planned-order report
+
+The bundled run produced 17 simulated planned orders. A few rows from the generated `output/planned_orders.csv`:
+
+| Planned order | Material | Category | Qty | Start date | Finish date |
+|---|---|---|---:|---|---|
+| `SIM-0001` | `FORK-100` | `IN_HOUSE` | 9 | 2026-12-08 | 2026-12-10 |
+| `SIM-0002` | `FORK-100` | `IN_HOUSE` | 8 | 2026-12-15 | 2026-12-17 |
+| `SIM-0007` | `SEAL-KIT` | `PURCHASE` | 20 | 2026-12-11 | 2026-12-15 |
+
 ## Project map
 
 ```text
 pp_mrp/engine.py       MRP netting, BOM explosion, routing offset, validation
 pp_mrp/database.py    SQLite initialization and sample-data loading
 pp_mrp/__main__.py    Command-line interface
-sql/schema.sql        Learning schema modeled on selected SAP PP objects
+sql/schema.sql        SQLite schema modeled on selected SAP PP objects
 sql/seed.sql          Example master data and BOMs
 data/demand.csv       Sample independent demand
 tests/                Automated simulation tests
@@ -71,6 +81,6 @@ docs/DEBUGGING_LOG.md Actual issues found and resolved during this build
 
 ## Relevance to the role description
 
-This exercise provides a discussion artifact for discrete-manufacturing process analysis, master-data relationships, a simplified data model, validation, troubleshooting, test planning, and user instructions. It also identifies conceptual boundaries with MM, QM, PM, FI/CO, and PLM/PEO/PLMSI instead of claiming those integrations are implemented. It does **not** demonstrate SAP customizing, SAP transactions, ABAP, live-system integration, client workshops, or production deployment.
+This exercise provides a discussion artifact for discrete-manufacturing process analysis, PP master-data relationships, a simplified data model, validation, troubleshooting, test planning, and user instructions. It identifies conceptual relationships to the JD-named PLM, PEO, and PLMSI areas without claiming those integrations are implemented. It does **not** claim a live SAP connection or production deployment.
 
 See [Planning notes and user guide](docs/PLANNING_NOTES.md) and [development/debugging log](docs/DEBUGGING_LOG.md).
